@@ -3,7 +3,18 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
-
+    array_counter = len(arrays)
+    duplicates_tracker = {}
+    result = []
+    for i in arrays:
+        for e in i:
+            found = duplicates_tracker.get(e)
+            if found != None:
+                duplicates_tracker[e] += 1
+                if duplicates_tracker[e] == array_counter:
+                    result.append(e)
+            else:
+                duplicates_tracker[e] = 1
     return result
 
 
